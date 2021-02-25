@@ -1,0 +1,10 @@
+---
+-
+  hosts : AppServer
+
+  tasks : 
+    - name : Add dynamic dns rule
+      command : "/usr/bin/hostname -i dynamic_{{ ansible_hostname }}:{{ ansible_default_ipv4.address }}"
+      delegate_to : localhost
+
+...      

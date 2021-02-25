@@ -1,0 +1,20 @@
+---
+-
+  hosts : AppServer
+
+  tasks : 
+    - name : remote running process 
+      command : ps
+      register : remote_process
+
+    - debug : msg="{{ remote_process.stdout }} "
+
+    - name : running local process 
+      command : ps 
+      delegate_to : localhost
+      register : local_process 
+
+    - debug :
+         msg : "{{ local_process.stdout }}"
+
+...      
