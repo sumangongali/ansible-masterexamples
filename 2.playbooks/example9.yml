@@ -1,0 +1,25 @@
+---
+
+-
+  hosts : AppServer
+
+  vars : 
+    named_list :
+       - item1
+       - item2
+       - item3
+       - item4
+       - item5
+
+  tasks : 
+    - name : Test named list Key value
+      debug :
+        msg : result is {{ named_list }}
+
+    - name : Test namedlist Key value with dot notation
+      debug :
+        msg : result is {{ named_list.3 }}
+
+    - name : Test named list Key value with python notation
+      debug :
+        msg : result is {{ named_list[4] }}

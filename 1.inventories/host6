@@ -1,0 +1,16 @@
+[centosgroup]
+centos1
+centos2 ansible_user=root
+centos3
+centos[4:20]
+
+[ubuntugroup]
+ubuntu1
+ubuntu2
+ubuntu3
+ubuntu[100:200]
+
+
+[linux:children]
+centosgroup
+ubuntugroup

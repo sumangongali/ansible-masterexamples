@@ -1,0 +1,37 @@
+---
+# ansible-playbook example40.yml --tags mytag1
+
+# ansible-playbook example40.yml --tags tagged
+
+# ansible-playbook example40.yml --tags untagged
+
+# ansible-playbook example40.yml --tags all
+
+# ansible-playbook example40.yml --skip-tags mytag1
+
+-
+ hosts : AppServer
+
+ tasks :
+   - name : My Named Tags 
+     yum :
+       name : httpd
+       state : latest 
+     tags : production
+
+   - name : Install Postfix
+     yum :
+      name : postfix
+      state : latest
+
+   - name : Register example - generate and store data
+     command : hostname -s
+     register : hostname_output
+     tags : mytag1
+    
+   - name : show hostname 
+     debug :
+        var : hostname_output
+
+     
+...

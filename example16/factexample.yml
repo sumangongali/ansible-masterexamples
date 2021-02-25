@@ -1,0 +1,32 @@
+---
+
+-
+  hosts : AppServer
+  gather_facts : true
+
+  vars :
+    remote_dir : /etc/ansible/facts.d
+    facts_file1 : ./templates/custom.fact
+
+
+  tasks :
+    - name : Create and Place files in remote directory
+      file :
+        state : directory
+        recurse : yes
+        path : "{{ remote_dir }}"
+
+    - name : install fact files 
+      copy :
+        src : "{{ facts_file1 }}"
+        dest : "{{ remote_dir }}"
+
+    - name : Show IP Address
+      debug : 
+        msg : "{{ ansible_default_ipv4.address }}"
+    
+    - name : Show custom fact 
+      debug :
+        msg : "{{ ansible_local['custom']['general']['package'] }}"
+
+...

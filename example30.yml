@@ -1,0 +1,39 @@
+---
+-
+ hosts : AppServer
+
+ tasks :
+   - name : Create Users
+     user : 
+       name : "{{ item }}"
+       comment : "{{ item.1 | title }} {{ item.0.surname }}"
+       state : absent
+     with_subelements :
+       - 
+         - surname : Rao
+           members :
+             - Vishwanath
+             - Sreenath
+             - sushanth
+             - mahanth
+             - pinku
+         - surname : Tripathi
+           members : 
+              - Amit
+         - surname : balain
+           members : 
+              - deepak
+         - surname : capusneanu
+           members : 
+              - Paul
+         - surname : Gongali
+           members : 
+              - suman
+         - surname : kumar
+           members : 
+               - vipul
+           
+            
+       - members
+     
+...

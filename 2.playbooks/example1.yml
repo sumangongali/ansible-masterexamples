@@ -1,0 +1,17 @@
+---
+
+-
+  name : A Simple Play
+  hosts : appgroup
+  user : ansibleadm
+  become : yes
+  become_method : sudo
+  become_user : root
+
+  tasks :
+  - name : first task 
+    service : name=httpd enabled=true
+  - name : second task 
+    service : name=sshd enabled=true
+    
+...

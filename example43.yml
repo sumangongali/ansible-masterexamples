@@ -1,0 +1,25 @@
+---
+-
+ hosts : AppServer
+
+ 
+ tasks :
+    - name : Ignore error demo
+      yum : 
+        name : notapkg
+        state : latest 
+      ignore_errors : yes  
+
+
+    - name : My tagged Task 
+      yum :
+        name : httpd 
+        state : latest
+      tags : production
+
+    - name : Install Postfix
+      yum : 
+        name : postfix
+        state : latest    
+    
+...

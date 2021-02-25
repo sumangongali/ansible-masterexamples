@@ -1,0 +1,12 @@
+---
+
+-
+  hosts : AppServer
+  tasks :
+    - name : Play 2 - task 1
+      debug :
+        msg : Play2 - task 1
+
+    - import_tasks : play2_task2.yml
+
+...

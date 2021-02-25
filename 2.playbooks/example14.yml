@@ -1,0 +1,17 @@
+---
+
+-
+  hosts : all
+  gather_facts : true
+
+  tasks :
+    - name : Test Host vars
+      debug :
+        msg : "{{ hostvars[ansible_hostname].ansible_port | default('22') }}"
+    
+    - name : Test Host vars dict notation
+      debug :
+        msg : "{{ hostvars[ansible_hostname]['ansible_port']  | default('22') }}"
+
+...
+    

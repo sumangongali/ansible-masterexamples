@@ -1,0 +1,25 @@
+---
+- hosts : AppServer
+  vars :
+     users : [user1, user2, user3, bvr, user4]
+
+  tasks : 
+     - name : Ansible Jinja2 template example
+       debug :
+         msg : >
+           --== Ansible Jinja2 id statement ==--
+
+           {# If the hostname is AppServer, include a message -#}
+
+           {% if ansible_hostname == "AppServer" -%}
+                This is AppServer Machine
+            {% endif-%}
+
+            {% for user in users %}
+                {{ user }}
+                {% endfor %}
+
+            {% for myuser in users if not myuser == "bvr" %}
+             {{loop.index}} - {{ myuser }}
+             {% endfor %}
+...

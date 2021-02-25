@@ -1,0 +1,20 @@
+# register variables 
+
+---
+
+- 
+  hosts : AppServer
+
+  tasks : 
+    - name : Register example - generate and store data
+      command : hostname -s
+      register : hostname_output
+    
+    - name : show hostname 
+      debug :
+        var : hostname_output
+
+    - name : Show hostname stdout data
+      debug :
+        var : hostname_output.stdout
+...

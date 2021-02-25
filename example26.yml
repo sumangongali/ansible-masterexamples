@@ -1,0 +1,21 @@
+---
+-
+ hosts : AppServer
+
+ tasks :
+   - name : Configure a MOTD
+     copy :
+       content : "Welcome to {{ item }} Linux - Ansible demo \n "
+       dest : /etc/motd
+     notify : MOTD changed
+     with_items : 
+        - 'CentOS'
+        - 'Ubuntu'
+     when : ansible_distribution == item
+
+
+ handlers :
+   - name : MOTD changed
+     debug :
+       msg : THE MOTD WAS CHANGED
+...

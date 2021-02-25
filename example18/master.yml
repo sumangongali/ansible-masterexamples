@@ -1,0 +1,12 @@
+---
+
+-
+  hosts : AppServer
+  tasks :
+    - import_tasks : play1_task1.yml
+    - import_tasks : play1_task2.yml
+
+
+- import_playbook : play2.yml
+
+...

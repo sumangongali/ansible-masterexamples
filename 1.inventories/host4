@@ -1,0 +1,11 @@
+[centosgroup]
+centos1
+centos2 ansible_user=root
+centos3
+centos4 ansible_port=2222
+
+[ubuntugroup]
+ubuntu1
+ubuntu2 ansible_become=true ansible_become_pass=osboxes.org
+ubuntu3
+

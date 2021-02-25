@@ -1,0 +1,28 @@
+---
+- hosts : DBServer
+  force_handlers : yes
+  tasks :
+    - name : Ignore error demo 
+      yum :
+        name : notapkg
+        state : latest
+      notify : restart_database
+
+    - name : My Tagged Task 
+      yum : 
+        name : httpd
+        state : latest
+      tags : production
+
+    - name : Install Postfix
+      yum : 
+        name : postfix
+        state : latest
+  
+  handlers :
+    - name : restart_database
+      debug :
+        msg : "handler data"
+
+
+...

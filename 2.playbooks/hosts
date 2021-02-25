@@ -1,0 +1,13 @@
+[appgroup]
+AppServer ansible_port=22
+
+
+[dbgroup]
+DBServer
+
+[linux:children]
+appgroup
+dbgroup
+
+[linux:vars]
+ansible_user=ansibleadm

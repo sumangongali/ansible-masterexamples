@@ -1,0 +1,24 @@
+---
+-
+ hosts : AppServer
+
+ tasks :
+   - name : Create Users
+     user : 
+       name : "{{ item }}"
+       comment : "{{ item.value.full_name }}"
+       state : absent
+     with_dict :
+        rao : 
+          full_name : Vishwanath Rao
+        amit :
+          full_name : Amit Tripathi
+        deepak :
+          full_name : deepak balain
+        paul :
+          full_name : Paul capusneanu
+        suman :
+          full_name : suman Gongali
+             
+     
+...

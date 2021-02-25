@@ -1,0 +1,23 @@
+---
+-
+ hosts : AppServer
+
+ tasks :
+    - name : Create Users
+      user : 
+        name : "{{ item.key }}"
+        comment : "{{ item.value.full_name }}"
+      with_dict : 
+          rao :
+            full_name : Vishwanath Rao
+
+    - name : Create Authorized Key 
+      authorized_key :
+        user : rao
+        key : "{{ item }}"
+      with_file :
+          - /home/ansibleadm/.ssh/id_rsa.pub
+          - custom_key.pub
+          
+
+...
