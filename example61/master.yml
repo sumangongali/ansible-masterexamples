@@ -1,0 +1,18 @@
+---
+-
+  hosts :  AppServer
+  serial : 2
+
+  tasks : 
+    - name : Task1
+      command : /bin/sleep 5
+
+    - name : Task2
+      command : /bin/sleep 5
+
+    - name : Task3
+      command : /bin/sleep 5
+
+    - name : Task4
+      command : /bin/sleep 5
+
