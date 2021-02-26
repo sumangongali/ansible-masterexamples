@@ -1,0 +1,27 @@
+---
+-
+  hosts :  AppServer
+  tasks : 
+    - name : Task1
+      command : /bin/sleep 5
+      when : ansible_hostname == "AppServer"
+      async : 10
+      poll : 1
+
+
+    - name : Task2
+      command : /bin/sleep 5
+      when : ansible_hostname == "DBServer"
+      async : 10
+      poll : 1
+      
+    - name : Task3
+      command : /bin/sleep 5
+      async : 10
+      poll : 1
+     
+    - name : Task4
+      command : /bin/sleep 5
+      async : 10
+      poll : 1
+     
